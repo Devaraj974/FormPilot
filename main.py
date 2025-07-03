@@ -5,8 +5,8 @@ import json
 import time
 import requests
 # --- Streamlit Cloud: Ensure ChromeDriver is available ---
-import chromedriver_autoinstaller
-chromedriver_autoinstaller.install()
+# import chromedriver_autoinstaller
+# chromedriver_autoinstaller.install()
 
 # --- Load .env for local development convenience ---
 try:
