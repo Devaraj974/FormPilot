@@ -47,7 +47,7 @@ st.set_page_config(
 
 # --- Sidebar Configuration ---
 st.sidebar.header("⚙️ Configuration")
-def_env_key = st.secrets["GOOGLE_API_KEY"] if "GOOGLE_API_KEY" in st.secrets else os.getenv("GOOGLE_API_KEY", "")
+def_env_key = os.getenv("GOOGLE_API_KEY", "")
 google_api_key = st.sidebar.text_input(
     "Google AI API Key",
     value=def_env_key,
@@ -63,7 +63,7 @@ timeout_seconds = st.sidebar.slider("Timeout (seconds)", 10, 60, 30)
 if google_api_key:
     # Use Streamlit secrets if available, else fallback to environment variable
     if "GOOGLE_API_KEY" in st.secrets:
-        os.environ['GOOGLE_API_KEY'] = st.secrets["GOOGLE_API_KEY"]
+        os.environ['GOOGLE_API_KEY'] = os.getenv("GOOGLE_API_KEY", "")
     else:
         os.environ['GOOGLE_API_KEY'] = google_api_key
 
