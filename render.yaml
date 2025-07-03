@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: form-agent-langragh
+    env: docker
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
