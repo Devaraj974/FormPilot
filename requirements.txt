@@ -1,0 +1,11 @@
+streamlit
+selenium
+google-generativeai
+PyPDF2
+pymupdf
+python-dotenv
+requests
+langchain
+langchain-core
+langgraph
+chromedriver-autoinstaller 
