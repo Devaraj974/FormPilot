@@ -53,19 +53,13 @@ google_api_key = st.sidebar.text_input(
     value=def_env_key,
     type="password"
 )
-if ("GOOGLE_API_KEY" in st.secrets and def_env_key):
-    st.sidebar.info("Loaded API key from Streamlit secrets (hidden)")
-if dotenv_loaded and not ("GOOGLE_API_KEY" in st.secrets) and def_env_key:
-    st.sidebar.info("Loaded API key from .env file (hidden)")
+if def_env_key:
+    st.sidebar.info("Loaded API key from environment variable (hidden)")
 headless_mode = st.sidebar.checkbox("Headless Browser", value=True)
 timeout_seconds = st.sidebar.slider("Timeout (seconds)", 10, 60, 30)
 
 if google_api_key:
-    # Use Streamlit secrets if available, else fallback to environment variable
-    if "GOOGLE_API_KEY" in st.secrets:
-        os.environ['GOOGLE_API_KEY'] = os.getenv("GOOGLE_API_KEY", "")
-    else:
-        os.environ['GOOGLE_API_KEY'] = google_api_key
+    os.environ['GOOGLE_API_KEY'] = google_api_key
 
 # --- Session State Initialization ---
 if 'extracted_data' not in st.session_state:
