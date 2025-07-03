@@ -120,7 +120,7 @@ class EnhancedPDFLinkExtractor:
             chrome_options.add_argument("--disable-gpu")
             chrome_options.add_argument("--window-size=1920,1080")
 
-            self.driver = webdriver.Chrome(options=chrome_options)
+            self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
             print("✅ Browser setup completed")
         except Exception as e:
             print(f"⚠ Browser setup failed: {e}")
@@ -349,6 +349,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from langchain.tools import BaseTool
 from selenium.webdriver.support.ui import Select
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 class EnhancedWebFormFillerTool(BaseTool):
     name: str = "Enhanced Web Form Filler"
@@ -370,7 +372,7 @@ class EnhancedWebFormFillerTool(BaseTool):
             chrome_options.add_argument("--allow-running-insecure-content")
             chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
             chrome_options.add_experimental_option('useAutomationExtension', False)
-            driver = webdriver.Chrome(options=chrome_options)
+            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
             driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
             driver.execute_script("Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]})")
             driver.execute_script("Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']})")
@@ -1296,7 +1298,7 @@ def main():
                                 chrome_options.add_argument("--allow-running-insecure-content")
                                 chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
                                 chrome_options.add_experimental_option('useAutomationExtension', False)
-                                driver = webdriver.Chrome(options=chrome_options)
+                                driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
                                 driver.get(st.session_state.form_url)
                                 time.sleep(5)
                                 WebDriverWait(driver, 10).until(
@@ -1345,7 +1347,7 @@ def main():
                             chrome_options.add_argument("--allow-running-insecure-content")
                             chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
                             chrome_options.add_experimental_option('useAutomationExtension', False)
-                            driver = webdriver.Chrome(options=chrome_options)
+                            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
                             driver.get(st.session_state.form_url)
                             time.sleep(5)
                             WebDriverWait(driver, 10).until(

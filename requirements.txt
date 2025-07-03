@@ -8,4 +8,5 @@ requests
 langchain
 langchain-core
 langgraph
-chromedriver-autoinstaller 
+chromedriver-autoinstaller
+webdriver-manager 
