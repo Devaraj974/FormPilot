@@ -9,6 +9,31 @@ This app extracts information from your resume PDF and automatically fills job a
 - Handles missing fields with user prompts
 - Deployable on Render.com with full browser automation support
 
+## 🚀 How to Deploy on Render.com
+
+Follow these steps to deploy this app on Render.com:
+
+1. **Fork or Upload the Repository**
+   - Push your code (including `main.py`, `requirements.txt`, `Dockerfile`, and `render.yaml`) to GitHub.
+
+2. **Create a New Web Service on Render**
+   - Go to [Render.com](https://dashboard.render.com/) and log in.
+   - Click **"New +" → "Web Service"**.
+   - Connect your GitHub repo and select your project.
+   - Render will auto-detect your `Dockerfile` and use it to build the app.
+
+3. **Set Environment Variables**
+   - In the Render dashboard, add your Google Gemini API key as an environment variable:
+     - Key: `GOOGLE_API_KEY`
+     - Value: `your-google-gemini-api-key-here`
+
+4. **Deploy and Access**
+   - Click **"Create Web Service"**.
+   - Wait for the build and deployment to finish.
+   - Visit your Render URL to use your app!
+
+**Live Demo:** [https://formpilot-k51d.onrender.com/](https://formpilot-k51d.onrender.com/)
+
 ## Requirements
 - Python 3.8+
 - All dependencies are listed in `requirements.txt`
@@ -35,6 +60,8 @@ This app extracts information from your resume PDF and automatically fills job a
 - Wait for the build and deployment to finish.
 - Visit your Render URL to use your app!
 
+**Live Demo:** [https://formpilot-k51d.onrender.com/](https://formpilot-k51d.onrender.com/)
+
 ## 🐳 Local Development with Docker
 
 1. Build the Docker image:
@@ -58,3 +85,9 @@ This app extracts information from your resume PDF and automatically fills job a
 ---
 
 **Enjoy automated form filling!** 
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). 
