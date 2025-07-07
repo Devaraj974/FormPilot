@@ -1,4 +1,4 @@
-# AI Resume Form Filler
+# AI Resume Form Filler Agent
 
 This app extracts information from your resume PDF and automatically fills job application forms using AI and browser automation.
 
